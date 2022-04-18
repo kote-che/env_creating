@@ -11,7 +11,7 @@ pipeline {
   stages {
     stage('Terraform init without backend') {
         steps {
-            sh 'docker ps'
+            sh 'sudo docker ps'
         }
         // post {
         //     always {
