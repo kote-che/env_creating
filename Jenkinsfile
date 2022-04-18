@@ -16,7 +16,7 @@ pipeline {
     }
     stage ("Terraform validate") {
         steps {
-            sh 'docker run -v "$(pwd)/terraform":"/terraform" --workdir="/terraform" hashicorp/terraform validate'
+            sh 'docker run -v "$(pwd)/terraform":"/terraform" --workdir="/terraform" hashicorp/terraform validate -json'
         }
     }
   }
