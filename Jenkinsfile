@@ -12,7 +12,10 @@ pipeline {
     stage('Terraform init without backend') {
         steps {
             sh 'ls -l; pwd'
-            sh 'sudo docker ps'
+            sh 'sudo docker run -v "$(pwd)":"/terraform" --workdir="/terraform" hashicorp/terraform init'
+        }
+        steps {
+            sh 'sudo docker run -v "$(pwd)":"/terraform" --workdir="/terraform" hashicorp/terraform validate'
         }
         // post {
         //     always {
