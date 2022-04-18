@@ -13,21 +13,12 @@ pipeline {
         steps {
             sh 'sudo docker run -v "$(pwd)":"/terraform" --workdir="/terraform" hashicorp/terraform init'
         }
+    }
+    stage ("Terraform validate") {
         steps {
             sh 'sudo docker run -v "$(pwd)":"/terraform" --workdir="/terraform" hashicorp/terraform validate'
         }
-        // post {
-        //     always {
-        //         junit testResults: 'reports/unittest/TEST-*.xml'
-        //         publishCoverage adapters: [coberturaAdapter(path: 'reports/coverage/coverage.xml')]
-        //     }
-        // }
     }
   }
-//   post {
-//     always {
-//       sh 'rm -rf dist/*'
-//     }
-//   }
 }
 
