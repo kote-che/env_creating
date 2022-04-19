@@ -1,9 +1,4 @@
 pipeline {
-  environment {
-    BITBUCKET_CREDS='bitbucket_git'
-    GIT_COMMITTER_NAME="jenkins"
-    GIT_COMMITTER_EMAIL="jenkins@getblend.com"
-  }
   agent {
     label 'master'
   }
